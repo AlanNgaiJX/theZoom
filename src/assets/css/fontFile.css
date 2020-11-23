@@ -1,0 +1,466 @@
+﻿/*
+  id规范:
+    0空白字体
+    100开头为中文字体
+    300开头为英文字体
+    500开头为韩文
+
+  这里正常只增不减，字体下架还是会有旧数据，依然需要用到引用
+*/
+
+/*blank 方框字体*/
+@font-face {
+  font-family: 'font0';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/blank.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/blank.ttf) format('truetype');
+}
+
+/*兰亭黑*/
+@font-face {
+  font-family: 'font101';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/FZLTHK.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/FZLTHK.ttf) format('truetype');
+}
+
+/*宋体*/
+@font-face {
+  font-family: 'font102';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/simsun.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/simsun.ttf) format('truetype');
+}
+
+/*雅黑*/
+@font-face {
+  font-family: 'font100';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/msyh.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/msyh.ttf) format('truetype');
+}
+
+/*楷体*/
+@font-face {
+  font-family: 'font104';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/simkai.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/simkai.ttf) format('truetype');
+}
+
+/*华康少女*/
+@font-face {
+  font-family: 'font105';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/hksnwzw5.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/hksnwzw5.ttf) format('truetype');
+}
+
+/*方正喵鸣体*/
+@font-face {
+  font-family: 'font106';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/FZMW_QZT.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/FZMW_QZT.ttf) format('truetype');
+}
+
+/*华康海报体 W12*/
+@font-face {
+  font-family: 'font107';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/DFPHaiBaoW12-GB.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/DFPHaiBaoW12-GB.ttf) format('truetype');
+}
+
+/*方正粗圆简体*/
+@font-face {
+  font-family: 'font108';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/fzcy.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/fzcy.ttf) format('truetype');
+}
+
+/*微软雅黑 bold*/
+@font-face {
+  font-family: 'font109';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/msyhbd.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/msyhbd.ttf) format('truetype');
+}
+
+/*方正兰亭粗黑*/
+@font-face {
+  font-family: 'font110';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/FZLTCH_GBK.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/FZLTCH_GBK.ttf) format('truetype');
+}
+
+/*汉仪悠然体简*/
+@font-face {
+  font-family: 'font111';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/HYYouRanTiJ.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/HYYouRanTiJ.ttf) format('truetype');
+}
+
+/*造字工房悦圆*/
+@font-face {
+  font-family: 'font112';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/zzgf-yy.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/zzgf-yy.ttf) format('truetype');
+}
+
+/*造字工房丁丁手绘*/
+@font-face {
+  font-family: 'font113';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/MFDingDing_Noncommercial-Regular.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/MFDingDing_Noncommercial-Regular.ttf) format('truetype');
+}
+
+/*字酷堂清楷体*/
+@font-face {
+  font-family: 'font114';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/zkt-qkt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/zkt-qkt.ttf) format('truetype');
+}
+
+/*汉仪黑荔枝体简*/
+@font-face {
+  font-family: 'font115';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/hy-hlzt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/hy-hlzt.ttf) format('truetype');
+}
+
+/*汉仪小麦体简*/
+@font-face {
+  font-family: 'font116';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/HYXiaoMaiTiJ.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/HYXiaoMaiTiJ.ttf) format('truetype');
+}
+
+/*新蒂黑板报体*/
+@font-face {
+  font-family: 'font117';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/xd-hbbt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/xd-hbbt.ttf) format('truetype');
+}
+
+/*幼圆*/
+@font-face {
+  font-family: 'font118';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/youyuan.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/youyuan.ttf) format('truetype');
+}
+
+/*创艺简标宋*/
+@font-face {
+  font-family: 'font119';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/cyjbs.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/cyjbs.ttf) format('truetype');
+}
+
+/*字体管家丽丽体*/
+@font-face {
+  font-family: 'font120';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AaCarrie2.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AaCarrie2.ttf) format('truetype');
+}
+
+/*迷你简粗圆*/
+@font-face {
+  font-family: 'font121';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/minijcy.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/minijcy.ttf) format('truetype');
+}
+
+/*华文细黑*/
+@font-face {
+  font-family: 'font122';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/stxihei.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/stxihei.ttf) format('truetype');
+}
+
+/*阿里巴巴普惠体*/
+@font-face {
+font-family: 'font123';
+src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/albb-pht.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/albb-pht.ttf) format('truetype');
+}
+
+/*思源宋体Bold 这里开始*/
+@font-face {
+font-family: 'font124';
+src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/syst-b.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/syst-b.ttf) format('truetype');
+}
+
+/*濑户字体 (这个字体不行，勿用)*/
+@font-face {
+font-family: 'font125';
+src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/lhzt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/lhzt.ttf) format('truetype');
+}
+
+/*书体坊硬笔行书 (这个字体不行，勿用)*/
+@font-face {
+font-family: 'font126';
+src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/stf-ybxs.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/stf-ybxs.ttf) format('truetype');
+}
+
+/*杨任东竹石体*/
+@font-face {
+font-family: 'font127';
+src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/yrd-zst.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/yrd-zst.ttf) format('truetype');
+}
+
+/*站酷快乐体*/
+@font-face {
+font-family: 'font128';
+src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/zk-klt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/zk-klt.ttf) format('truetype');
+}
+
+/*站酷庆科黄油体 (这个字体不行，勿用)*/
+@font-face {
+font-family: 'font129';
+src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/zk-kqhyt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/zk-kqhyt.ttf) format('truetype');
+}
+
+/*站酷文艺体*/
+@font-face {
+font-family: 'font130';
+src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/zk-wyt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/zk-wyt.ttf) format('truetype');
+}
+
+/*Arial*/
+@font-face {
+  font-family: 'font300';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/arial.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/arial.ttf) format('truetype');
+}
+
+/*Lucida*/
+@font-face {
+  font-family: 'font301';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/LCALLIG.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/LCALLIG.ttf) format('truetype');
+}
+
+/*Sketch_Block*/
+@font-face {
+  font-family: 'font304';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/Sketch_Block.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/Sketch_Block.ttf) format('truetype');
+}
+
+/*HelvetidoodlebyEdT*/
+@font-face {
+  font-family: 'font305';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/HelvetidoodlebyEdT.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/HelvetidoodlebyEdT.ttf) format('truetype');
+}
+
+/*HomemadeApple*/
+@font-face {
+  font-family: 'font306';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/HomemadeApple.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/HomemadeApple.ttf) format('truetype');
+}
+
+/*TallFilm*/
+@font-face {
+  font-family: 'font307';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/TallFilm.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/TallFilm.ttf) format('truetype');
+}
+
+/*ALTAN___*/
+@font-face {
+  font-family: 'font308';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/ALTAN___.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/ALTAN___.ttf) format('truetype');
+}
+
+/*comesinhandy*/
+@font-face {
+  font-family: 'font309';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/Redocn_2013091921330232.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/Redocn_2013091921330232.ttf) format('truetype');
+}
+
+/*dutcheb*/
+@font-face {
+  font-family: 'font310';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/dutcheb.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/dutcheb.ttf) format('truetype');
+}
+
+/*BickhamScriptPro-Bold*/
+@font-face {
+  font-family: 'font311';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/BickhamScriptPro-Bold.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/BickhamScriptPro-Bold.ttf) format('truetype');
+}
+
+/*CooperBlack*/
+@font-face {
+  font-family: 'font312';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/CooperBlack.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/CooperBlack.ttf) format('truetype');
+}
+
+/*ninifont-regular*/
+@font-face {
+  font-family: 'font313';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/ninifont-regular.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/ninifont-regular.ttf) format('truetype');
+}
+
+/*Rockwell-ExtraBold*/
+@font-face {
+  font-family: 'font314';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/Rockwell-ExtraBold.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/Rockwell-ExtraBold.ttf) format('truetype');
+}
+
+/*comic*/
+@font-face {
+  font-family: 'font315';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/comic.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/comic.ttf) format('truetype');
+}
+
+/*comicbd*/
+@font-face {
+  font-family: 'font316';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/comicbd.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/comicbd.ttf) format('truetype');
+}
+
+/*comici*/
+@font-face {
+  font-family: 'font317';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/comici.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/comici.ttf) format('truetype');
+}
+
+/*comicz*/
+@font-face {
+  font-family: 'font318';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/comicz.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/comicz.ttf) format('truetype');
+}
+
+/*aparaj*/
+@font-face {
+  font-family: 'font319';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/aparaj.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/aparaj.ttf) format('truetype');
+}
+
+/*aparajb*/
+@font-face {
+  font-family: 'font320';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/aparajb.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/aparajb.ttf) format('truetype');
+}
+
+/*aparajbi*/
+@font-face {
+  font-family: 'font321';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/aparajbi.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/aparajbi.ttf) format('truetype');
+}
+
+/*aparaji*/
+@font-face {
+  font-family: 'font322';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/aparaji.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/aparaji.ttf) format('truetype');
+}
+
+/*AGENCYB*/
+@font-face {
+  font-family: 'font323';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AGENCYB.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AGENCYB.ttf) format('truetype');
+}
+
+/*AGENCYR*/
+@font-face {
+  font-family: 'font324';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AGENCYR.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AGENCYR.ttf) format('truetype');
+}
+
+/*BrannbollFet*/
+@font-face {
+  font-family: 'font325';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/BrannbollFet.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/BrannbollFet.ttf) format('truetype');
+}
+
+/*Perpetua Titling MT*/
+@font-face {
+  font-family: 'font326';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/PerpetuaTitlingMT.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/PerpetuaTitlingMT.ttf) format('truetype');
+}
+
+/*PhontPhreaksHandwriting*/
+@font-face {
+  font-family: 'font327';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/PhontPhreaksHandwriting.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/PhontPhreaksHandwriting.ttf) format('truetype');
+}
+
+/*PhotinaMTStd-SemiBoldItalic*/
+@font-face {
+  font-family: 'font328';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/PhotinaMTStd-SemiBoldItalic.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/PhotinaMTStd-SemiBoldItalic.ttf) format('truetype');
+}
+
+/*Bukhari_Script*/
+@font-face {
+  font-family: 'font329';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/Bukhari_Script.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/Bukhari_Script.ttf) format('truetype');
+}
+
+/*pacifico*/
+@font-face {
+  font-family: 'font330';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/pacifico.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/pacifico.ttf) format('truetype');
+}
+
+/*012-CAI978*/
+@font-face {
+  font-family: 'font331';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/012-CAI978.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/012-CAI978.ttf) format('truetype');
+}
+
+/*PepitaMTStd*/
+@font-face {
+  font-family: 'font332';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/PepitaMTStd.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/PepitaMTStd.ttf) format('truetype');
+}
+
+/*LHANDW*/
+@font-face {
+  font-family: 'font333';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/LHANDW.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/LHANDW.ttf) format('truetype');
+}
+
+/*Stroke*/
+@font-face {
+  font-family: 'font334';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/OneStrokeScriptLET.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/OneStrokeScriptLET.ttf) format('truetype');
+}
+
+/*ArialBlack*/
+@font-face {
+  font-family: 'font335';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/ArialBlack.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/ArialBlack.ttf) format('truetype');
+}
+
+
+/*BakerScript*/
+@font-face {
+  font-family: 'font336';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/BakerScript.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/BakerScript.ttf) format('truetype');
+}
+
+/*Cooper-Black-Regular*/
+@font-face {
+  font-family: 'font337';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/Cooper-Black-Regular.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/Cooper-Black-Regular.ttf) format('truetype');
+}
+
+/*Braxton*/
+@font-face {
+  font-family: 'font338';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/Braxton.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/Braxton.ttf) format('truetype');
+}
+
+/*AirbnbCereal_Md*/
+@font-face {
+  font-family: 'font339';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_Md.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_Md.ttf) format('truetype');
+}
+
+/*AirbnbCereal_MdIt*/
+@font-face {
+  font-family: 'font340';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_MdIt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_MdIt.ttf) format('truetype');
+}
+
+/*AirbnbCereal_Bk*/
+@font-face {
+  font-family: 'font341';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_Bk.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_Bk.ttf) format('truetype');
+}
+
+/*AirbnbCereal_BkIt*/
+@font-face {
+  font-family: 'font342';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_BkIt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_BkIt.ttf) format('truetype');
+}
+
+/*AirbnbCereal_Bd*/
+@font-face {
+  font-family: 'font343';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_Bd.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_Bd.ttf) format('truetype');
+}
+
+/*AirbnbCereal_BdIt*/
+@font-face {
+  font-family: 'font344';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_BdIt.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbCereal_BdIt.ttf) format('truetype');
+}
+
+/*AirbnbPlusScript_Rg*/
+@font-face {
+  font-family: 'font345';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbPlusScript_Rg.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/AirbnbPlusScript_Rg.ttf) format('truetype');
+}
+
+/*韩文*/
+@font-face {
+  font-family: 'font500';
+  src: url(https://cdn-mmdesign.mimoprint.com/fontfiles/malgun.eot) format('embedded-opentype'), url(https://cdn-mmdesign.mimoprint.com/fontfiles/malgun.ttf) format('truetype');
+}

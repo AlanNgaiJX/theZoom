@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <div id="Home">
+        <NavHead index="2"></NavHead>
+        <!-- <Background index="1,99"></Background> -->
+    </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { defineComponent, reactive, ref } from "vue";
+import NavHead from "@/components/navHead.vue";
+import Background from "@/components/background.vue";
 
 export default defineComponent({
-  name: 'Home',
-  components: {
-    HelloWorld,
-  },
+    name: "Home",
+    components: {
+        NavHead,
+        Background,
+    },
+    setup(props, context) {
+        const state = reactive({});
+
+        return {
+            state
+        };
+    },
 });
 </script>
+
+<style lang="scss">
+#Home {
+    .testBtn {
+        position: fixed;
+        left: 300px;
+        top: 500px;
+    }
+}
+</style>

@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "commonjs",
     "strict": true,
+    "noImplicitAny": false,//不检查Parameter 'xxx' implicitly has an 'any' type.
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -31,7 +32,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx", "src/unit/articleMap.js"
   ],
   "exclude": [
     "node_modules"
