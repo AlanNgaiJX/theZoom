@@ -18,7 +18,8 @@ input, button, textarea {
 }
 
 body, input, button {
-  font-family: "Microsoft YaHei","Lantinghei SC","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+  /* 天猫字体方案 */
+  font-family: "PingFang SC",miui,system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
