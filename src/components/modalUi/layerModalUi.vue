@@ -9,10 +9,10 @@
 
 <script>
 import { computed, watch } from 'vue';
-import { modalUi } from "@/unit/modelUiUnit.ts";
-import ToastList from "@/components/toastList/toastList.vue";
-import ModalList from "@/components/modalList/modalList";
-import Loading from "@/components/loading/loading.vue"
+import { modalUi } from "./modelUiUnit.ts";
+import ToastList from "./toastList/toastList.vue";
+import ModalList from "./modalList/modalList";
+import Loading from "./loading/loading.vue"
 
 export default {
     name: "layerModalUi",

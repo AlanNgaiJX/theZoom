@@ -72,10 +72,10 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed, ref } from "vue";
-import { ModalData, FollowElement } from "@/components/modal/modal_type.ts";
-import { modalUi } from "@/unit/modelUiUnit";
+import { ModalData, FollowElement } from "./modal_type";
+import { modalUi } from "../modelUiUnit";
 import SvgIcon from "@/components/svgIcon.vue";
-import ShadowShade from "@/components/shadowShade/shadowShade.vue";
+import ShadowShade from "../shadowShade/shadowShade.vue";
 
 export default defineComponent({
     name: "modal",

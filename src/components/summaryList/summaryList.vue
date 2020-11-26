@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent, h } from "vue";
-import SummaryItem from "@/components/summaryItem.vue";
-import SummaryLayer from "@/components/summaryLayer.vue";
+import SummaryItem from "./summaryItem.vue";
+import SummaryLayer from "./summaryLayer.vue";
 
 export default defineComponent({
     name: "summaryList",
@@ -13,14 +13,19 @@ export default defineComponent({
         list: {
             type: Array,
         },
+        limitLevel: {
+            type: Number,
+            default: 3,
+        },
     },
     render() {
-        this.list;
-        function renderList(list) {
+        const renderList = (list, currLevel) => {
             if (list && list.length) {
                 return h(
                     SummaryLayer,
-                    {},
+                    {
+                        level: currLevel,
+                    },
                     {
                         default: () => {
                             return list.map((item) => {
@@ -29,10 +34,17 @@ export default defineComponent({
                                     {
                                         id: item.id,
                                         content: item.content,
+                                        level: item.level,
                                     },
                                     {
                                         default: () => {
-                                            return renderList(item.children);
+                                            if (item.level >= this.limitLevel) {
+                                                return;
+                                            }
+                                            return renderList(
+                                                item.children,
+                                                item.level + 1
+                                            );
                                         },
                                     }
                                 );
@@ -41,20 +53,32 @@ export default defineComponent({
                     }
                 );
             }
-        }
+        };
         return h(
             "div",
             {
-                class: "summaryList",
+                class: "summary-list",
             },
-            renderList(this.list)
+            renderList(this.list, 1)
         );
     },
 });
 </script>
 
 <style lang="scss">
-.summaryList {
-    border: 1px solid red;
+.summary-list {
+    position: relative;
+
+    // 第一级的竖线
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 2px;
+        background-color: #eff1f2;
+        left: 4px;
+        top: 8px;
+        bottom: 8px;
+    }
 }
 </style>

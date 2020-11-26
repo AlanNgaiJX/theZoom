@@ -5,9 +5,9 @@ import {
     Button,
     OptionButton,
     Position,
-} from "@/components/modal/modal_type.ts";
-import { ToastData } from "@/components/toast/toast_type.ts";
-import { LoadingData, LoadingType } from "@/components/loading/loading_type.ts";
+} from "./modal/modal_type";
+import { ToastData } from "./toast/toast_type";
+import { LoadingData, LoadingType } from "./loading/loading_type";
 
 interface ModalUi {
     modalList: Array<ModalData>;

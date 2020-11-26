@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Modal from "@/components/modal/modal.vue";
+import Modal from "../modal/modal.vue";
 
 export default defineComponent({
     name: "modalList",

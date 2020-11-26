@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, watch } from "vue";
-import Toast from "@/components/toast/toast.vue";
+import Toast from "../toast/toast.vue";
 
 export default defineComponent({
     name: "toastList",

@@ -14,9 +14,9 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from "vue";
-import { LoadingData } from "@/components/loading/loading_type.ts";
-import SpinKit from "@/components/loading/spinKit.vue";
-import ShadowShade from "@/components/shadowShade/shadowShade.vue";
+import { LoadingData } from "./loading_type";
+import SpinKit from "./spinKit.vue";
+import ShadowShade from "../shadowShade/shadowShade.vue";
 
 export default defineComponent({
     name: "loading",

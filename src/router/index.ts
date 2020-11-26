@@ -4,6 +4,8 @@ import Test from "@/views/Test.vue";
 import Article from "@/views/Article.vue";
 import NotFound from "@/views/NotFound.vue";
 
+import ArticleRead from "@/components/articleRead.vue";
+
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
@@ -16,9 +18,16 @@ const routes: Array<RouteRecordRaw> = [
         component: Test,
     },
     {
-        path: "/article",
+        path: "/article/:id",
         name: "Article",
         component: Article,
+        children:[
+            {
+                path:"read",
+                name: "ArticleRead",
+                component: ArticleRead
+            }
+        ]
     },
     {
         path: "/about",

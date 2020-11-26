@@ -1,9 +1,13 @@
+/* markdown全局样式, 
+    详见： https://www.npmjs.com/package/github-markdown-css
+*/
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
-    max-width: 980px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 45px;
+    /* background-color: yellow; */
 }
 
 @media (max-width: 767px) {

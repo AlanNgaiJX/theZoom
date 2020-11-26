@@ -15,8 +15,8 @@ import {
     onUnmounted,
     nextTick,
 } from "vue";
-import { ToastData } from "@/components/toast/toast_type.ts";
-import { modalUi } from "@/unit/modelUiUnit.ts";
+import { ToastData } from "./toast_type";
+import { modalUi } from "../modelUiUnit";
 
 export default defineComponent({
     name: "toast",
