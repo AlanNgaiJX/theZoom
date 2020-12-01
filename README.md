@@ -30,6 +30,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 *文章详情
 *小工具
 *个人简历
+*绘空间
 
 
 引用md文件，需要markdowan Loader ，https://www.npmjs.com/package/frontmatter-markdown-loader 

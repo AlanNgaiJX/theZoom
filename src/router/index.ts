@@ -4,7 +4,7 @@ import Test from "@/views/Test.vue";
 import Article from "@/views/Article.vue";
 import NotFound from "@/views/NotFound.vue";
 
-import ArticleRead from "@/components/articleRead.vue";
+import ArticleRead from "@/components/article/articleRead.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {

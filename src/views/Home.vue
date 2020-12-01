@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent } from "vue";
 import NavHead from "@/components/navHead.vue";
 import Background from "@/components/background.vue";
 
@@ -15,14 +15,7 @@ export default defineComponent({
     components: {
         NavHead,
         Background,
-    },
-    setup(props, context) {
-        const state = reactive({});
-
-        return {
-            state
-        };
-    },
+    }
 });
 </script>
 

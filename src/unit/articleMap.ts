@@ -1,9 +1,11 @@
+type ArticleCategory = "Vue" | "React";
 export interface Article {
     fileName: string;
     title: string;
     author: string;
     publishTime: string;
     updateTime: string;
+    categoryList: Array<ArticleCategory>;
 }
 interface ArticleMap {
     [index: string]: Article;
@@ -16,6 +18,7 @@ const articleMap: ArticleMap = {
         author: "AlanNgai",
         publishTime: "2020-02-28",
         updateTime: "2020-08-28",
+        categoryList: ["Vue"],
     },
     A0002: {
         fileName: "标题测试.md",
@@ -23,6 +26,7 @@ const articleMap: ArticleMap = {
         author: "AlanNgai",
         publishTime: "2020-02-28",
         updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
     },
 };
 

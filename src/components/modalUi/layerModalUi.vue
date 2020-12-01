@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { computed, watch } from 'vue';
 import { modalUi } from "./modelUiUnit.ts";
 import ToastList from "./toastList/toastList.vue";
 import ModalList from "./modalList/modalList";
