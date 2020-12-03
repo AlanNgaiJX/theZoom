@@ -32,7 +32,8 @@ export default defineComponent({
     position: fixed;
     width: 100%;
     height: 100%;
-    background-image: url("~@/assets/images/bg/Photo by Corey Agopian (rdy-mAeok9c).jpg");
+    // background-image: url("~@/assets/images/bg/Photo by Corey Agopian (rdy-mAeok9c).jpg");
+    background-image: url("~@/assets/images/bg/Photo by Dan-Cristian Pădureț (Y5dd6hLkn-8).jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

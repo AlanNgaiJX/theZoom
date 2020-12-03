@@ -6,6 +6,7 @@ import { store } from "./store";
 import "@/assets/css/common.css";
 import "@/assets/css/fontFile.css";
 import "@/assets/css/animate.css";
+import "@/assets/css/box-shadows.css";
 import "github-markdown-css";
 import "@/assets/css/github-markdown-config.css";
 

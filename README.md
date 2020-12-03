@@ -27,7 +27,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 模块规划
 *欢迎页
 *文章列表
+    ing
 *文章详情
+    *阅读 get
+    *编辑
 *小工具
 *个人简历
 *绘空间

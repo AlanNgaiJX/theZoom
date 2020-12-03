@@ -1,8 +1,10 @@
 interface LayoutState {
     showBlurBg: boolean;
+    showArticleList: boolean;
 }
 const state: LayoutState = {
-    showBlurBg: false
+    showBlurBg: false,
+    showArticleList: false
 };
 
 const getters = {};

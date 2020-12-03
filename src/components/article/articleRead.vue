@@ -47,6 +47,7 @@ export default defineComponent({
         });
         // 文章信息
         const articleInfo = reactive<Article>({
+            id:"",
             fileName: "",
             title: "",
             author: "",

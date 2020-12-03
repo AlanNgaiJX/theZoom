@@ -1,5 +1,6 @@
 type ArticleCategory = "Vue" | "React";
 export interface Article {
+    id: string;
     fileName: string;
     title: string;
     author: string;
@@ -7,12 +8,13 @@ export interface Article {
     updateTime: string;
     categoryList: Array<ArticleCategory>;
 }
-interface ArticleMap {
+export interface ArticleMap {
     [index: string]: Article;
 }
 
 const articleMap: ArticleMap = {
     A0001: {
+        id: "A0001",
         fileName: "你好啊世界.md",
         title: "你好啊世界",
         author: "AlanNgai",
@@ -21,8 +23,171 @@ const articleMap: ArticleMap = {
         categoryList: ["Vue"],
     },
     A0002: {
+        id: "A0002",
         fileName: "标题测试.md",
         title: "标题测试",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0003: {
+        id: "A0003",
+        fileName: "标题测试.md",
+        title: "标题测标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试试3",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0004: {
+        id: "A0004",
+        fileName: "标题测试.md",
+        title: "标题测试4",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0005: {
+        id: "A0005",
+        fileName: "标题测试.md",
+        title: "标题测试5",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0006: {
+        id: "A0006",
+        fileName: "标题测试.md",
+        title: "标题测试6",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0007: {
+        id: "A0007",
+        fileName: "标题测试.md",
+        title: "标题测试7",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0008: {
+        id: "A0008",
+        fileName: "标题测试.md",
+        title: "标题测试8",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0009: {
+        id: "A0009",
+        fileName: "标题测试.md",
+        title: "标题测试9",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0010: {
+        id: "A0010",
+        fileName: "标题测试.md",
+        title: "标题测试10",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0011: {
+        id: "A0011",
+        fileName: "标题测试.md",
+        title: "标题测试11",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0012: {
+        id: "A0012",
+        fileName: "标题测试.md",
+        title: "标题测试12",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0013: {
+        id: "A0013",
+        fileName: "标题测试.md",
+        title: "标题测试13",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0014: {
+        id: "A0014",
+        fileName: "标题测试.md",
+        title: "标题测试14",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0015: {
+        id: "A0015",
+        fileName: "标题测试.md",
+        title: "标题测试15",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0016: {
+        id: "A0016",
+        fileName: "标题测试.md",
+        title: "标题测试16",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0017: {
+        id: "A0017",
+        fileName: "标题测试.md",
+        title: "标题测试17",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0018: {
+        id: "A0018",
+        fileName: "标题测试.md",
+        title: "标题测试18",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0019: {
+        id: "A0019",
+        fileName: "标题测试.md",
+        title: "标题测试19",
+        author: "AlanNgai",
+        publishTime: "2020-02-28",
+        updateTime: "2020-08-28",
+        categoryList: ["Vue","React"],
+    },
+    A0020: {
+        id: "A0020",
+        fileName: "标题测试.md",
+        title: "标题测试20",
         author: "AlanNgai",
         publishTime: "2020-02-28",
         updateTime: "2020-08-28",
