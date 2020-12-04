@@ -1,5 +1,8 @@
 <template>
-    <div id="articleList">
+    <div id="articleList" class="mini-scroll">
+        <div class="btn-close" @click="close">
+            <SvgIcon name="close1" class="icon-close"></SvgIcon>
+        </div>
         <div class="searcher" id="searcher">
             <SvgIcon name="search" class="icon-search"></SvgIcon>
             <input type="text" v-model="queryTitle" />
@@ -26,17 +29,6 @@
                         >{{ article.publishTime }}
                     </div>
                 </div>
-                <!-- <div class="default-invisible">
-                    <ul class="categoryList">
-                        <li
-                            v-for="(cate, index) in article.categoryList"
-                            :key="index"
-                            class="cate"
-                        >
-                            #{{ cate }}
-                        </li>
-                    </ul>
-                </div> -->
             </li>
         </ul>
     </div>
@@ -44,6 +36,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, onMounted, reactive, ref } from "vue";
+import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import articleMap, { Article, ArticleMap } from "@/unit/articleMap.ts";
 import SvgIcon from "@/components/svgIcon.vue";
@@ -53,6 +46,7 @@ export default defineComponent({
         SvgIcon,
     },
     setup(props, context) {
+        const store = useStore();
         const router = useRouter();
         const allArticle = (function parseArticleMap(
             articleMap: ArticleMap
@@ -89,24 +83,14 @@ export default defineComponent({
             });
         }
 
-        onMounted(() => {
-            const articleListDom = document.getElementById("articleList");
-            const seracherDom = document.getElementById("searcher");
-            if (seracherDom && articleListDom) {
-                const top = seracherDom.getBoundingClientRect().top;
+        function close() {
+            store.commit("layout/setState", {
+                showBlurBg: false,
+                showArticleList: false,
+            });
+        }
 
-                window.addEventListener("scroll", function() {
-                    const scrollTop = document.documentElement.scrollTop;
-                    if (scrollTop >= top) {
-                        articleListDom.classList.add("fixedSearch");
-                    } else {
-                        articleListDom.classList.remove("fixedSearch");
-                    }
-                });
-            }
-        });
-
-        return { currArticleList, routeToArticle, queryTitle };
+        return { currArticleList, routeToArticle, queryTitle, close };
     },
 });
 </script>
@@ -114,53 +98,66 @@ export default defineComponent({
 <style lang="scss">
 #articleList {
     position: fixed;
-    z-index: 1000;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    overflow: auto;
+    z-index: 1000;
 
     @media screen and (min-width: 500px) {
         padding: 50px;
     }
 
-    &.fixedSearch {
-        padding-top: 130px;
+    .btn-close {
+        position: fixed;
+        top: 10%;
+        right: 10%;
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        z-index: 1;
 
-        .searcher {
-            position: fixed;
-            top: 0;
-            z-index: 1;
+        .icon-close {
+            color: #fff;
+            width: 40px;
+            height: 40px;
         }
     }
 
     .searcher {
-        height: 80px;
         width: 80%;
         max-width: 500px;
         padding-left: 20px;
         box-sizing: border-box;
         display: flex;
         align-items: center;
-        background-color: #eee;
         position: relative;
 
         .icon-search {
             width: 20px;
             height: 20px;
             margin-right: 10px;
+            color: #fff;
         }
 
         input {
             background-color: transparent;
             border: none;
-            border-bottom: 1px solid rgb(153, 153, 153);
+            border-bottom: 1px solid #fff;
             max-width: 250px;
-            width: 70%;
-            height: 20px;
+            width: 10%;
+            height: 40px;
             font-size: 15px;
-            padding-bottom: 10px;
+            transition: width 1s ease-out;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+
+            &:hover,
+            &:focus {
+                width: 70%;
+            }
         }
     }
 
@@ -170,13 +167,15 @@ export default defineComponent({
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: #333;
+        margin-top: 20px;
 
         .empty {
             border-bottom: 1px solid #fff;
             padding: 18px 10px 5px 10px;
             max-width: 500px;
             width: 80%;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
         }
 
         .item {
@@ -187,28 +186,20 @@ export default defineComponent({
             max-width: 500px;
             width: 80%;
             cursor: pointer;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+            background-color: transparent;
+            // transition: background-color .05s;
 
-            &:hover {
-                background-color: black;
-            }
+            // &:hover {
+            //     background-color: black;
+            // }
 
             .default-visible,
             .default-invisible {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-            }
-
-            .categoryList {
-                display: flex;
-
-                .cate {
-                    font-size: 12px;
-                    border: 1px solid #fff;
-                    border-radius: 10px;
-                    padding: 0 5px;
-                    margin-right: 10px;
-                }
             }
 
             .title {

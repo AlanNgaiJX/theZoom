@@ -11,6 +11,10 @@
                         <SvgIcon name="article" class="app-icon"></SvgIcon>
                         <div class="app-title">Article</div>
                     </li>
+                    <li class="clock-app app-item">
+                        <SvgIcon name="clock" class="app-icon"></SvgIcon>
+                        <div class="app-title">{{ time }}</div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -18,8 +22,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 import { useStore } from "vuex";
+import { dateFormat } from "@/unit/commonUtils.ts";
 import NavButton from "@/components/homepad/navButton.vue";
 import Welcome from "@/components/homepad/welcome.vue";
 import SvgIcon from "@/components/svgIcon.vue";
@@ -37,13 +42,19 @@ export default defineComponent({
     },
     setup() {
         const store = useStore();
+
+        const time = computed(() => {
+            return dateFormat("HH:MM:SS", store.state.layout.currDate);
+        });
+
         function attachBgBlur() {
             store.commit("layout/setState", {
                 showBlurBg: true,
                 showArticleList: true,
             });
         }
-        return { attachBgBlur };
+
+        return { attachBgBlur, time };
     },
 });
 </script>
@@ -123,7 +134,7 @@ export default defineComponent({
             .app-icon {
                 animation: bounce;
                 animation-duration: 1.2s;
-                animation-iteration-count: infinite;
+                animation-iteration-count: 1;
             }
 
             .app-title {
@@ -134,10 +145,20 @@ export default defineComponent({
 
     .article-app {
         .app-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             color: #fff;
-            transform: none;
+        }
+    }
+
+    .clock-app {
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            color: #fff;
+        }
+        .app-title{
+            letter-spacing: 2px;
         }
     }
 }
