@@ -1,6 +1,5 @@
 <template>
     <div id="classicClock">
-        <button @click="setClock">setClock</button>
         <svg
             version="1.1"
             id="classicClockSvg"
@@ -8,10 +7,8 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px"
             y="0px"
-            width="600px"
-            height="600px"
-            viewBox="94.257 101.184 358 401.184"
-            enable-background="new 94.257 101.184 394.257 401.184"
+            viewBox="94 101 300 300"
+            enable-background="new 94 101 300 300"
             xml:space="preserve"
         >
             <circle
@@ -858,22 +855,13 @@
 </template>
 
 <script>
-            // require("@/assets/js/snap.svg-min.js");
-
-import { defineComponent, onMounted } from "vue";
+import "@/assets/js/snap.svg-0.5.1.js";
+import { defineComponent, onMounted, onUnmounted } from "vue";
 export default defineComponent({
-    props: {
-        date: {
-            type: Date,
-            required: true,
-        },
-    },
     setup(props) {
-        // onMounted(() => {
-        //     require("@/assets/js/snap.svg-min.js");
-        // });
-
-        function setClock() {
+        let interval = 0;
+            
+        onMounted(() => {
             const s = window.Snap(document.getElementById("classicClockSvg"));
             const seconds = s.select("#seconds"),
                 minutes = s.select("#minutes"),
@@ -903,7 +891,6 @@ export default defineComponent({
             seconds.before(sshadow);
             minutes.before(mshadow);
             hours.before(hshadow);
-            rim.before(rshadow);
 
             //Create a filter to make a blurry black version of a thing
             const filter =
@@ -916,15 +903,6 @@ export default defineComponent({
                     opacity: 0.2,
                     filter: s.filter(filter),
                 });
-            });
-
-            rshadow.attr({
-                transform: "translate(0, 8) ",
-                opacity: 0.5,
-                filter: s.filter(
-                    window.Snap.filter.blur(0, 8) +
-                        window.Snap.filter.brightness(0)
-                ),
             });
 
             function setHours(t) {
@@ -1102,24 +1080,33 @@ export default defineComponent({
             }
 
             function update() {
-                const time = new Date();
-                setHours(time);
-                setMinutes(time);
-                setSeconds(time);
+                const date = new Date();
+                setHours(date);
+                setMinutes(date);
+                setSeconds(date);
             }
-            setInterval(update, 1000);
-        }
 
-        return { setClock };
+            interval = setInterval(update, 1000);
+        });
+
+        onUnmounted(()=>{
+            clearInterval(interval);
+        })
+
+        return {};
     },
 });
 </script>
 
 <style lang="scss">
 #classicClock {
+    width: 100%;
+    pointer-events: none;
+
     svg {
         display: block;
         margin: 0 auto;
+        width: 100%;
     }
 }
 </style>

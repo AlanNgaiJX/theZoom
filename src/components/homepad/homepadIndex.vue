@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, onMounted, onUnmounted, ref } from "vue";
 import { useStore } from "vuex";
 import { dateFormat } from "@/unit/commonUtils.ts";
 import NavButton from "@/components/homepad/navButton.vue";
@@ -41,11 +41,13 @@ export default defineComponent({
         },
     },
     setup() {
+        let interval = 0;
         const store = useStore();
+        const time = ref("");
 
-        const time = computed(() => {
-            return dateFormat("HH:MM:SS", store.state.layout.currDate);
-        });
+        function updateTime() {
+            time.value = dateFormat("HH:MM:SS", new Date());
+        }
 
         function attachBgBlur() {
             store.commit("layout/setState", {
@@ -53,6 +55,14 @@ export default defineComponent({
                 showArticleList: true,
             });
         }
+
+        onMounted(() => {
+            interval = setInterval(updateTime, 1000);
+        });
+
+        onUnmounted(() => {
+            clearInterval(interval);
+        });
 
         return { attachBgBlur, time };
     },
@@ -157,7 +167,7 @@ export default defineComponent({
             height: 50px;
             color: #fff;
         }
-        .app-title{
+        .app-title {
             letter-spacing: 2px;
         }
     }

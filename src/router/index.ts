@@ -5,11 +5,14 @@ import Article from "@/views/Article.vue";
 import NotFound from "@/views/NotFound.vue";
 
 import ArticleRead from "@/components/article/articleRead.vue";
-// import ArticleList from "@/components/articleList/articleList.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
+        redirect: "/home",
+    },
+    {
+        path: "/home",
         name: "Home",
         component: Home,
     },
@@ -18,22 +21,17 @@ const routes: Array<RouteRecordRaw> = [
         name: "Test",
         component: Test,
     },
-    // {
-    //     path: "/articleList",
-    //     name: "ArticleList",
-    //     component: ArticleList
-    // },
     {
         path: "/article/:id",
         name: "Article",
         component: Article,
-        children:[
+        children: [
             {
-                path:"read",
+                path: "read",
                 name: "ArticleRead",
-                component: ArticleRead
-            }
-        ]
+                component: ArticleRead,
+            },
+        ],
     },
     {
         path: "/about",
@@ -45,7 +43,7 @@ const routes: Array<RouteRecordRaw> = [
             import(/* webpackChunkName: "about" */ "../views/About.vue"),
     },
     {
-        path: "/:pathMatch(.*)*",// 404 not found
+        path: "/:pathMatch(.*)*", // 404 not found
         name: "404",
         component: NotFound,
     },

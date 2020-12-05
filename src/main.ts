@@ -10,10 +10,6 @@ import "@/assets/css/box-shadows.css";
 import "github-markdown-css";
 import "@/assets/css/github-markdown-config.css";
 
-
-console.log(this === window);
-console.log(this);
-
 // 导入/svgIcon文件夹下的所有.svg文件
 const requireAll = (requireContext: any) =>
     requireContext.keys().map(requireContext);
