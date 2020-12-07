@@ -1,12 +1,12 @@
 interface LayoutState {
     showBlurBg: boolean;
     showArticleList: boolean;
-    currDate: Date;
+    showClock: boolean;
 }
 const state: LayoutState = {
     showBlurBg: false,
     showArticleList: false,
-    currDate: new Date()
+    showClock: false,
 };
 
 const getters = {};
@@ -17,9 +17,6 @@ const mutations = {
     setState(state: any, data: any) {
         Object.assign(state, data);
     },
-    setCurrDate(state: any, date: Date){
-        state.currDate = date;
-    }
 };
 
 export default {

@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue";
 export default defineComponent({
-    name:"slider",
+    name: "slider",
     props: {
         value: {
             type: Number,
@@ -26,10 +26,10 @@ export default defineComponent({
             type: Number,
             default: 3,
         },
-        step:{
-            typer: Number,
-            default: 0.01
-        }
+        disable: {
+            type: Boolean,
+            default: false,
+        },
     },
     directives: {
         drag: {
@@ -103,14 +103,26 @@ export default defineComponent({
             return props.value;
         });
         const valueStyle = computed(() => {
-            return {
-                width: currValue.value * 100 + "%",
-            };
+            if (props.disable) {
+                return {
+                    width: "100%",
+                    'background-color': "#000000",
+                    transition: 'width 1s'
+                };
+            } else {
+                return {
+                    width: currValue.value * 100 + "%",
+                    transition: 'none'
+                };
+            }
         });
 
         let cacheValue = 0;
 
         function onDrag(status, { startPoint, endPoint }) {
+            if (props.disable) {
+                return;
+            }
             if (status === "start") {
                 cacheValue = currValue.value;
             }
@@ -121,9 +133,6 @@ export default defineComponent({
                     let _currValue = cacheValue + offsetX / wrapDom.offsetWidth;
                     _currValue < 0 && (_currValue = 0);
                     _currValue > 1 && (_currValue = 1);
-
-                    // _currValue = Math.floor(_currValue / props.step) * props.step;
-
                     _currValue = parseFloat(_currValue.toFixed(props.toFixed));
                     context.emit("update:value", _currValue);
                 }

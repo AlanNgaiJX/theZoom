@@ -1,10 +1,7 @@
 <template>
     <div id="Test">
         <Clock></Clock>
-        <!-- <div>{{ v }}</div> -->
-        <!-- <div class="wrap">
-            <Slider v-model:value="v" :step="0.09"></Slider>
-        </div> -->
+        <!-- <button @click="pauseCountdown">test</button> -->
     </div>
 </template>
 
@@ -19,19 +16,14 @@ export default defineComponent({
         Clock,
         Slider,
     },
-    data() {
+    setup() {
         return {
-            v: 0,
-        };
+        }
     },
 });
 </script>
 
 <style lang="scss">
 #Test {
-    // .wrap{
-    //     width: 200px;
-    //     margin: 50px;
-    // }
 }
 </style>

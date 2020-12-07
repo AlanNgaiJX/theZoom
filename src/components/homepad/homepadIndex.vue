@@ -11,7 +11,7 @@
                         <SvgIcon name="article" class="app-icon"></SvgIcon>
                         <div class="app-title">Article</div>
                     </li>
-                    <li class="clock-app app-item">
+                    <li class="clock-app app-item" @click="attachClock">
                         <SvgIcon name="clock" class="app-icon"></SvgIcon>
                         <div class="app-title">{{ time }}</div>
                     </li>
@@ -35,11 +35,6 @@ export default defineComponent({
         Welcome,
         SvgIcon,
     },
-    methods: {
-        attachArticle() {
-            this.attachBgBlur();
-        },
-    },
     setup() {
         let interval = 0;
         const store = useStore();
@@ -49,10 +44,17 @@ export default defineComponent({
             time.value = dateFormat("HH:MM:SS", new Date());
         }
 
-        function attachBgBlur() {
+        function attachArticle() {
             store.commit("layout/setState", {
                 showBlurBg: true,
                 showArticleList: true,
+            });
+        }
+
+        function attachClock() {
+            store.commit("layout/setState", {
+                showBlurBg: true,
+                showClock: true,
             });
         }
 
@@ -64,7 +66,7 @@ export default defineComponent({
             clearInterval(interval);
         });
 
-        return { attachBgBlur, time };
+        return { attachArticle, attachClock, time };
     },
 });
 </script>

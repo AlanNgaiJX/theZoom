@@ -1,89 +1,61 @@
 <template>
     <div id="clock">
         <div class="two-part">
-            <div class="part displayPart">
+            <div class="part displayPart" :class="{ half: showModules }">
                 <div class="clockWrap">
                     <ClassicClock></ClassicClock>
                 </div>
                 <div class="btn-group">
-                    <div class="btn btn-setting">
-                        <SvgIcon name="setting" class="icon"></SvgIcon>
+                    <div class="btn btn-switch" @click="close">
+                        <SvgIcon name="switch" class="icon"></SvgIcon>
                     </div>
-                    <div class="btn btn-alarm">
+                    <div class="btn btn-alarm" @click="swithcShowModules">
                         <SvgIcon name="alarm" class="icon"></SvgIcon>
                     </div>
                 </div>
             </div>
-            <div class="part modulesPart">
+            <div class="part modulesPart" :class="{ half: showModules }">
                 <!-- 倒计时 -->
-                <div class="countdown-module">
-                    <div class="countdown-display">
-                        <ul class="time-number-setting">
-                            <li class="txt hour">{{ timeInSetting.hour }}</li>
-                            <li>:</li>
-                            <li class="txt">{{ timeInSetting.minute }}</li>
-                            <li>:</li>
-                            <li class="txt">{{ timeInSetting.second }}</li>
-                        </ul>
-                        <div class="btn-play-pause">
-                            <div class="btn btn-play">
-                                <SvgIcon name="play" class="icon"></SvgIcon>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="time-setting">
-                        <Slider
-                            v-model:value="sliderValue"
-                            :toFixed="2"
-                        ></Slider>
-                        <ul class="ruler">
-                            <li v-for="item in 10" :key="item"></li>
-                        </ul>
-                    </div>
-                </div>
+                <Countdown v-if="showModules"></Countdown>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from "vue";
+import { defineComponent, computed, ref, reactive, onBeforeUnmount } from "vue";
 import { useStore } from "vuex";
-import { dateFormat } from "@/unit/commonUtils.ts";
 import SvgIcon from "@/components/svgIcon.vue";
 import ClassicClock from "@/components/clock/classicClock.vue";
-import Slider from "@/components/formUi/slider.vue";
+import Countdown from "@/components/clock/countdown.vue";
 
 export default defineComponent({
     name: "clock",
     components: {
         SvgIcon,
         ClassicClock,
-        Slider,
+        Countdown,
     },
     setup() {
         const store = useStore();
-        const sliderValue = ref(0);
-        const disableSlider = ref(false);
-        const minutes = computed(() => {
-            return Math.round(90 * sliderValue.value);
-        });
+        const showModules = ref(false);
+        function swithcShowModules() {
+            showModules.value = !showModules.value;
+            return;
+        }
 
-        const timeInSetting = computed(() => {
-            const hour = Math.floor(minutes.value / 60);
-            const minute = minutes.value % 60;
-            const hourTxt = hour + "";
-            const minuteTxt = minute < 10 ? "0" + minute : minute + "";
-            const secondTxt = "00";
+        function close() {
+            store.commit("layout/setState", {
+                showBlurBg: false,
+                showClock: false,
+            });
+        }
 
-            return {
-                hour: hourTxt,
-                minute: minuteTxt,
-                second: secondTxt,
-            };
-        });
-
-        return { sliderValue, disableSlider, timeInSetting };
+        return {
+            swithcShowModules,
+            showModules,
+            close,
+        };
     },
 });
 </script>
@@ -94,17 +66,13 @@ export default defineComponent({
     width: 100%;
     height: 100%;
     z-index: 100;
-    background-color: #eee;
 
     .two-part {
         display: flex;
         height: 100%;
-        background-color: yellow;
 
         .part {
             box-sizing: border-box;
-            border: 1px solid black;
-            width: 50%;
             height: 100%;
         }
 
@@ -113,13 +81,17 @@ export default defineComponent({
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: red;
+            width: 100%;
+            transition: width 1s;
+
+            &.half {
+                width: 50%;
+            }
 
             .clockWrap {
                 position: relative;
-                width: 60%;
-                max-width: 500px;
-                background-color: pink;
+                width: 50%;
+                max-width: 300px;
             }
 
             .btn-group {
@@ -136,6 +108,13 @@ export default defineComponent({
                         height: 20px;
                     }
 
+                    &.btn-switch {
+                        .icon {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+
                     &.active {
                         .icon {
                             color: #007fff;
@@ -150,114 +129,12 @@ export default defineComponent({
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #dcdcdc;
+            width: 0%;
+            transition: width 1s;
+            border-left: 1px solid #acacac;
 
-            .countdown-module {
-                width: 400px;
-                height: 300px;
-                padding: 45px;
-                box-sizing: border-box;
-                background-color: red;
-
-                .countdown-display {
-                    display: flex;
-                    justify-content: space-between;
-
-                    .time-number-setting {
-                        display: flex;
-                        align-items: center;
-                        font-size: 40px;
-                        width: 220px;
-                        background-color: yellow;
-
-                        .txt {
-                            width: 55px;
-                            text-align: center;
-
-                            &.hour {
-                                text-align: end;
-                                margin-right: 5px;
-                            }
-                        }
-                    }
-
-                    .btn-play-pause {
-                        width: 80px;
-                        height: 80px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        background-color: pink;
-
-                        .btn {
-                            width: 50px;
-                            height: 50px;
-                            background-color: #007aff;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            border-radius: 100%;
-                            border: 5px solid #c8d4e1;
-                        }
-
-                        .btn-play {
-                            .icon {
-                                color: #fff;
-                                width: 25px;
-                                height: 25px;
-                                cursor: pointer;
-                                position: relative;
-                                left: 2px;
-                            }
-                        }
-                    }
-                }
-
-                .time-setting {
-                    height: 50px;
-                    margin-top: 40px;
-
-                    .ruler {
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                        margin-top: 2px;
-                        position: relative;
-                        left: -1px;
-                        counter-reset: item -1;
-
-                        li {
-                            display: block;
-                            height: 5px;
-                            border-left: 1px solid #78868d;
-                            position: relative;
-                            counter-increment: item;
-
-                            &:nth-child(3n + 1) {
-                                height: 10px;
-
-                                &::after {
-                                    content: counter(item) "0";
-                                    display: block;
-                                    width: 11px;
-                                    height: 15px;
-                                    position: absolute;
-                                    left: -5px;
-                                    bottom: -18px;
-                                    font-size: 12px;
-                                    line-height: 15px;
-                                    text-align: center;
-                                    color: #78868d;
-                                }
-                            }
-                            &:nth-child(1) {
-                                &::after {
-                                    content: counter(item);
-                                }
-                            }
-                        }
-                    }
-                }
+            &.half {
+                width: 50%;
             }
         }
     }

@@ -14,7 +14,12 @@
             <ArticleList v-if="showArticleList"></ArticleList>
         </transition>
 
-        <Clock v-if="true"></Clock>
+        <transition
+            enter-active-class="animate__animated animate__fadeIn animate__fast"
+            leave-active-class="animate__animated animate__zoomOutUp animate__fast"
+        >
+            <Clock v-if="showClock"></Clock>
+        </transition>
     </div>
 </template>
 
@@ -37,7 +42,7 @@ export default defineComponent({
         Glass,
         Homepad,
         ArticleList,
-        Clock
+        Clock,
     },
     setup() {
         const store = useStore();
@@ -45,13 +50,11 @@ export default defineComponent({
             return store.state.layout.showArticleList;
         });
 
-        onMounted(() => {
-            // setInterval(function() {
-            //     store.commit("layout/setCurrDate", new Date());
-            // }, 1000);
+        const showClock = computed(() => {
+            return store.state.layout.showClock;
         });
 
-        return { showArticleList };
+        return { showArticleList, showClock };
     },
 });
 </script>

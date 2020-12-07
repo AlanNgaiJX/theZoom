@@ -47,3 +47,44 @@ export function dateFormat(fmt: string, date: Date): string {
     }
     return fmt;
 }
+
+interface ShowOption extends NotificationOptions {
+    duration?: number;
+}
+export function showNotification(title: string, showOption?: ShowOption) {
+    if (!window.Notification) {
+        console.warn("notification is not support!!");
+        return;
+    }
+
+    // 整合 全局配置 和 实时配置
+    const options = Object.assign(
+        {},
+        window.notificationConfig || {},
+        showOption || {}
+    );
+    
+    function show() {
+        const n = new Notification(title, options);
+        setTimeout(() => {
+            n.close();
+        }, options?.duration || 3000);
+    }
+
+    if (window.Notification.permission === "granted") {
+        show();
+    } else if (window.Notification.permission === "default") {
+        window.Notification.requestPermission().then((permission) => {
+            if (permission === "granted") {
+                show();
+            }
+        });
+    }
+}
+
+export function initNotification(config?: ShowOption) {
+    window.Notification.requestPermission();
+    Object.assign(window, {
+        notificationConfig: config,
+    });
+}
