@@ -9,7 +9,11 @@
                     <div class="btn btn-switch" @click="close">
                         <SvgIcon name="switch" class="icon"></SvgIcon>
                     </div>
-                    <div class="btn btn-alarm" @click="swithcShowModules">
+                    <div
+                        class="btn btn-alarm"
+                        @click="swithcShowModules"
+                        :class="{ active: showModules }"
+                    >
                         <SvgIcon name="alarm" class="icon"></SvgIcon>
                     </div>
                 </div>
@@ -23,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, reactive, onBeforeUnmount } from "vue";
+import { defineComponent, computed} from "vue";
 import { useStore } from "vuex";
 import SvgIcon from "@/components/svgIcon.vue";
 import ClassicClock from "@/components/clock/classicClock.vue";
@@ -38,9 +42,14 @@ export default defineComponent({
     },
     setup() {
         const store = useStore();
-        const showModules = ref(false);
+
+        // 显示右半部分
+        const showModules = computed(() => {
+            return store.state.clock.showModules;
+        });
+
         function swithcShowModules() {
-            showModules.value = !showModules.value;
+            store.commit("clock/_showModules", !showModules.value);
             return;
         }
 

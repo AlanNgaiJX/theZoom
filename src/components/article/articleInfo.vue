@@ -1,6 +1,6 @@
 <!-- 顶部的文章信息 -->
 <template>
-    <div class="article-info">
+    <div id="article-info">
         <h1 class="info-title">{{ articleInfo.title }}</h1>
         <div class="info-authorNtime">
             <p class="info-author">
@@ -56,12 +56,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.article-info {
+#article-info {
     box-sizing: border-box;
     min-width: 200px;
     max-width: 900px;
     margin: 0 auto;
-    padding: 45px 45px 20px 45px;
+    padding: 30px 45px 20px 45px;
     position: relative;
 
     .info-title {
@@ -143,7 +143,7 @@ export default defineComponent({
 }
 
 @media (max-width: 767px) {
-    .article-info {
+    #article-info {
         padding: 15px;
     }
 }

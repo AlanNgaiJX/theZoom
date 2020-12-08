@@ -1,11 +1,8 @@
 <template>
     <div id="ArticleRead">
-        <div class="ruler">
-            <div class="rsub r1"></div>
-            <div class="rsub r2"></div>
-            <div class="rsub r3"></div>
-            <div class="rsub r4"></div>
-        </div>
+        <!-- 顶部导航 -->
+        <ArticleNav></ArticleNav>
+        
         <!-- 顶部的文章信息 -->
         <ArticleInfo :articleInfo="articleInfo"></ArticleInfo>
 
@@ -18,7 +15,6 @@
         <!-- 文章内容 -->
         <div class="markdown-body" v-html="html"></div>
 
-        <!-- <div class="makeup-foot" :style="footHeight"></div> -->
     </div>
 </template>
 
@@ -27,13 +23,15 @@ import { computed, defineComponent, watch, ref, reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import gsap from "@/unit/gsapUnit.ts";
 import articleMap, { Article } from "@/unit/articleMap";
-import { SummaryItem, parseMdFile } from "./parseMdFile";
-import ArticleInfo from "./articleInfo.vue";
+import { SummaryItem, parseMdFile } from "@/components/article/parseMdFile";
+import ArticleNav from "@/components/article/articleNav.vue";
+import ArticleInfo from "@/components/article/articleInfo.vue";
 import SummaryList from "@/components/summaryList/summaryList.vue";
 
 export default defineComponent({
     name: "ArticleRead",
     components: {
+        ArticleNav,
         ArticleInfo,
         SummaryList,
     },
@@ -85,15 +83,10 @@ export default defineComponent({
             { immediate: true }
         );
 
-        const footHeight = {
-            height: document.documentElement.clientHeight - 100 + "px",
-        };
-
         return {
             html,
             summaryLevelList,
             articleInfo,
-            footHeight,
         };
     },
     methods: {
@@ -156,11 +149,6 @@ export default defineComponent({
             right: 5%;
             width: 20%;
         }
-    }
-
-    .makeup-foot {
-        // height: 500px;
-        width: 100%;
     }
 }
 </style>

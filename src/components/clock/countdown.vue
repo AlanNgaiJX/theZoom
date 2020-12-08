@@ -154,7 +154,6 @@ export default defineComponent({
     height: 300px;
     padding: 45px;
     box-sizing: border-box;
-    // background-color: tomato;
 
     .countdown-display {
         display: flex;
@@ -165,6 +164,8 @@ export default defineComponent({
             align-items: center;
             font-size: 40px;
             width: 220px;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
 
             .txt {
                 width: 55px;

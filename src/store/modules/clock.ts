@@ -5,12 +5,14 @@ interface ClockState {
     isCountdowning: boolean;
     secondInCounting: number;
     countdownInterval: number;
+    showModules: boolean;
 }
 const state: ClockState = {
     sliderValue: 0,
     isCountdowning: false,
     secondInCounting: 0,
     countdownInterval: 0,
+    showModules: false,
 };
 
 const getters = {};
@@ -33,7 +35,7 @@ const actions = {
                 dispatch("pauseCountdown");
                 dispatch("timesup");
             }
-        },1000);
+        }, 1000);
         commit("_countdownInterval", countdownInterval);
     },
 
@@ -60,6 +62,9 @@ const mutations = {
     },
     _countdownInterval(state: any, countdownInterval: number) {
         state.countdownInterval = countdownInterval;
+    },
+    _showModules(state: any, showModules: boolean) {
+        state.showModules = showModules;
     },
 };
 

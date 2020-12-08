@@ -15,6 +15,18 @@
                         <SvgIcon name="clock" class="app-icon"></SvgIcon>
                         <div class="app-title">{{ time }}</div>
                     </li>
+                    <li class="background-app app-item" @click="attachClock">
+                        <SvgIcon name="background" class="app-icon"></SvgIcon>
+                        <div class="app-title">Background</div>
+                    </li>
+                    <li class="meditation-app app-item" @click="attachClock">
+                        <SvgIcon name="meditation" class="app-icon"></SvgIcon>
+                        <div class="app-title">Meditation</div>
+                    </li>
+                    <li class="puzzle-app app-item" @click="attachClock">
+                        <SvgIcon name="puzzle" class="app-icon"></SvgIcon>
+                        <div class="app-title">Puzzle</div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -171,6 +183,30 @@ export default defineComponent({
         }
         .app-title {
             letter-spacing: 2px;
+        }
+    }
+
+    .background-app {
+        .app-icon {
+            width: 65px;
+            height: 65px;
+            color: #fff;
+        }
+    }
+
+    .meditation-app {
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            color: #fff;
+        }
+    }
+
+    .puzzle-app {
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            color: #fff;
         }
     }
 }

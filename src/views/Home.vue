@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, onMounted } from "vue";
+import { defineComponent, computed } from "vue";
 import { useStore } from "vuex";
 import Background from "@/components/background.vue";
 import BlurBackground from "@/components/blurBackgroundx.vue";
